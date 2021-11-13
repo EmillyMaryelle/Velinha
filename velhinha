@@ -1,0 +1,100 @@
+#matriz 
+def Game():
+    matriz = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    return matriz
+
+
+def PrintMatriz(matriz):
+    print("""
+        Jogo da Velha
+jogador 1 (X) - jogador 2 (O)
+        |      |      
+     {}  |   {}  |   {}  
+  ______|______|______
+        |      |      
+     {}  |   {}  |   {}  
+  ______|______|______
+        |      |      
+     {}  |   {}  |   {}  
+        |      |
+    """.format(matriz[0][0],
+               matriz[0][1],
+               matriz[0][2],
+               matriz[1][0],
+               matriz[1][1],
+               matriz[1][2],
+               matriz[2][0],
+               matriz[2][1],
+               matriz[2][2]))
+
+def jogo(matriz, jogador):
+    number = int(input(' {}, enter a number: '.format(jogador)))
+    if jogador == 1:
+        choice = 'X'
+    else:
+        choice = 'O'
+    if number == 1:
+        matriz[0][0] = choice
+    elif number == 2:
+        matriz[0][1] = choice
+    elif number == 3:
+        matriz[0][2] = choice
+    elif number == 4:
+        matriz[1][0] = choice
+    elif number == 5:
+        matriz[1][1] = choice
+    elif number == 6:
+        matriz[1][2] = choice
+    elif number == 7:
+        matriz[2][0] = choice
+    elif number == 8:
+        matriz[2][1] = choice
+    else:
+        matriz[2][2] = choice
+
+
+# Alguem ganhou? vamos ver
+def Win(matriz):
+    if matriz[0][0] == matriz[1][1] and matriz[1][1] == matriz[2][2]:
+        if matriz[0][0] == 'X':
+            return 1
+        else:
+            return 2
+    if matriz[0][2] == matriz[1][1] and matriz[1][1] == matriz[2][0]:
+        if matriz[0][0] == 'X':
+            return 1
+        else:
+            return 2
+
+    if matriz[0][0] == matriz[0][1] and matriz[0][1] == matriz[0][2]:
+        if matriz[0][0] == 'X':
+            return 1
+        else:
+            return 2
+    if matriz[1][0] == matriz[1][1] and matriz[1][1] == matriz[1][2]:
+        if matriz[0][0] == 'X':
+            return 1
+        else:
+            return 2
+    if matriz[2][0] == matriz[2][1] and matriz[2][1] == matriz[2][2]:
+        if matriz[0][0] == 'X':
+            return 1
+        else:
+            return 2
+
+    if matriz[0][0] == matriz[1][0] and matriz[1][0] == matriz[2][0]:
+        if matriz[0][0] == 'X':
+            return 1
+        else:
+            return 2
+    if matriz[0][1] == matriz[1][1] and matriz[1][1] == matriz[2][1]:
+        if matriz[0][0] == 'X':
+            return 1
+        else:
+            return 2
+    if matriz[0][2] == matriz[1][2] and matriz[1][2] == matriz[2][2]:
+        if matriz[0][0] == 'X':
+            return 1
+        else:
+            return 2
+    return 0
